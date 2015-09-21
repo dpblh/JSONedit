@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('JSONedit', ['ui.sortable', 'ui.bootstrap'])
+angular.module('JSONedit', ['ui.sortable'])
     .directive('ngModelOnblur', function() {
         // override the default input to update on blur
         // from http://jsfiddle.net/cn8VF/
@@ -19,7 +19,7 @@ angular.module('JSONedit', ['ui.sortable', 'ui.bootstrap'])
             }
         };
     })
-    .directive('tekoRules', ['$modal', '$timeout', function($modal, $timeout) {
+    .directive('tekoRules', ['$timeout', function($timeout) {
         return {
             restrict: 'E',
             scope:{
