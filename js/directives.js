@@ -26,15 +26,17 @@ angular.module('JSONedit', ['ui.sortable'])
                 ngModel: '=',
                 ngChange: '&'
             },
-            template: '<div id="editor" style="width: 100%; height: 200px;" ng-bind="value"></div>',
+            template: '<div id="{{id}}" style="width: 100%; height: 200px;" ng-bind="value"></div>',
             link: function(scope, element, attrs) {
 
                 var time;
 
+                scope.id = Math.floor(Math.random() * 100).toString();
+
                 scope.value = scope.ngModel;
 
                 $timeout(function() {
-                    var editor = ace.edit("editor");
+                    var editor = ace.edit(scope.id);
                     editor.setTheme("ace/theme/chrome");
                     editor.getSession().setMode("ace/mode/afscript");
                     editor.getSession().setTabSize(20);
